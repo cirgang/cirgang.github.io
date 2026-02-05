@@ -1,41 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Chloe Irgang</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <title>Chloe Irgang | Electrical Engineering</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
+    :root {
+      --accent: #2563eb;
+      --bg: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --card: #f9fafb;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: system-ui, sans-serif;
-      max-width: 800px;
-      margin: 60px auto;
-      padding: 0 20px;
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
       line-height: 1.6;
     }
-    h1 { font-size: 2.5rem; }
-    h2 { margin-top: 2rem; }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 64px 20px;
+    }
+
+    header {
+      margin-bottom: 64px;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.3rem;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .links {
+      margin-top: 16px;
+    }
+
+    .links a {
+      margin-right: 16px;
+      font-weight: 500;
+    }
+
+    section {
+      margin-bottom: 72px;
+    }
+
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #ddd;
+    }
+
+    .project-content {
+      padding: 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-content h3 {
+      margin: 0 0 8px 0;
+      font-size: 1.25rem;
+    }
+
+    .project-content p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      flex: 1;
+    }
+
+    .project-links {
+      margin-top: 12px;
+    }
+
+    .project-links a {
+      display: inline-block;
+      margin-right: 12px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 32px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+    }
   </style>
 </head>
+
 <body>
-  <h1>Chloe Irgang</h1>
-  <p><strong>Electrical Engineering • Embedded Systems • PCB Design</strong></p>
+  <div class="container">
 
-  <h2>About</h2>
-  <p>
-    Electrical engineering student focused on embedded systems, PCB design,
-    and robotics. Designed 10+ custom PCBs in Altium for autonomous systems.
-  </p>
+    <!-- HEADER -->
+    <header>
+      <h1>Chloe Irgang</h1>
+      <p>
+        Electrical engineering student focused on embedded systems, PCB design,
+        and autonomous systems. Designed 10+ custom PCBs in Altium for robotics,
+        sensing, and control applications.
+      </p>
 
-  <h2>Selected Work</h2>
-  <ul>
-    <li>Autonomous drone flight controller PCB</li>
-    <li>ESP32-based motor controller board</li>
-    <li>Sensor fusion test platform (IMU + MCU)</li>
-  </ul>
+      <div class="links">
+        <a href="mailto:cirgang@umich.edu">Email</a>
+        <!-- Optional -->
+        <!-- <a href="https://www.linkedin.com/in/yourprofile">LinkedIn</a> -->
+      </div>
+    </header>
 
-  <h2>Contact</h2>
-  <p>
-    Email: <a href="mailto:cirgang@umich.edu">cirgang@umich.edu</a>
-  </p>
+    <!-- PROJECTS -->
+    <section>
+      <h2>Selected Projects</h2>
+
+      <div class="projects">
+
+        <!-- PROJECT 1 -->
+        <div class="project-card">
+          <img src="images/drone-pcb.jpg" alt="Drone PCB" />
+          <div class="project-content">
+            <h3>Autonomous Drone Flight Controller</h3>
+            <p>
+              Custom multi-layer PCB designed in Altium for an autonomous drone.
+              Integrated IMU, MCU, power regulation, and sensor interfaces.
+            </p>
+            <div class="project-links">
+              <a href="#">Altium Project</a>
+              <a href="#">Details</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="project-card">
+          <img src="images/motor-controller.jpg" alt="Motor Controller PCB" />
+          <div class="project-content">
+            <h3>Motor Controller Board</h3>
+            <p>
+              ESP32-based motor controller PCB with onboard power regulation,
+              protection circuitry, and encoder inputs.
+            </p>
+            <div class="project-links">
+              <a href="#">Altium Project</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="project-card">
+          <img src="images/sensor-board.jpg" alt="Sensor PCB" />
+          <div class="project-content">
+            <h3>Sensor Fusion Test Platform</h3>
+            <p>
+              Embedded test board for IMU and environmental sensors used to
+              validate sensor fusion algorithms.
+            </p>
+            <div class="project-links">
+              <a href="#">Altium Project</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        Most designs are private. Additional PCB layouts and schematics
+        available upon request.
+      </p>
+    </footer>
+
+  </div>
 </body>
 </html>
