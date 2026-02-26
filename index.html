@@ -140,12 +140,93 @@
         font-size: 2.2rem;
       }
     }
+    /* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 35, 48, 0.95); /* matches your --bg */
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+}
+
+.menu-button {
+  font-size: 28px;
+  color: var(--text);
+  cursor: pointer;
+  margin-right: 12px;
+  transition: transform 0.2s ease;
+}
+
+.menu-button:hover {
+  transform: scale(1.1);
+}
+
+.menu-title {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  background: #011b24;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  min-width: 180px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.dropdown a {
+  padding: 12px 16px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dropdown a:hover {
+  background: var(--accent);
+}
+
+.dropdown.show {
+  display: flex;
+}
+
+/* Push content down so navbar doesn't overlap */
+.container {
+  padding-top: 100px;
+}
   </style>
 </head>
 
 <body>
   <div class="container">
+    <!-- NAVBAR / MENU -->
+  <div class="navbar">
+    <div class="menu-button" onclick="toggleMenu()">☰</div>
+    <div class="menu-title">Menu</div>
+  </div>
 
+  <div id="menu" class="dropdown">
+    <a href="#home">Home</a>
+    <a href="#projects">Projects</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="container" id="home">
     <!-- HEADER -->
     <header>
       <h1>Chloe Irgang</h1>
@@ -164,7 +245,7 @@
 
     <!-- PROJECTS -->
     <section>
-      <h2>Selected Projects</h2>
+      <h2>Featured Projects</h2>
 
       <div class="projects">
 
@@ -230,5 +311,17 @@
     </footer>
 
   </div>
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    // Close menu if clicking outside
+    window.addEventListener("click", function(e) {
+      if (!e.target.closest('.navbar') && !e.target.closest('.dropdown')) {
+        document.getElementById("menu").classList.remove("show");
+      }
+    });
+  </script>
 </body>
 </html>
