@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects | Chloe Irgang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --accent: #2563eb;
+      --bg: #002330;
+      --text: #ffffff;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    header {
+      margin-bottom: 56px;
+    }
+
+    header h1 {
+      font-size: 2.6rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    /* PROJECT LIST */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .project-row {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding-bottom: 32px;
+    }
+
+    .project-image {
+      flex: 0 0 280px;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: #011b24;
+    }
+
+    .project-info {
+      flex: 1;
+    }
+
+    .project-info h2 {
+      margin: 0 0 10px 0;
+      font-size: 1.6rem;
+    }
+
+    .project-info p {
+      margin: 0 0 12px 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .project-links a {
+      margin-right: 16px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 72px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    /* Mobile responsiveness */
+    @media (max-width: 700px) {
+      .project-row {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .project-image {
+        width: 100%;
+        flex: none;
+      }
+
+      .project-image img {
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Projects</h1>
+      <p>
+        A selection of hardware, embedded systems, PCB design, and robotics
+        projects developed over the past several years.
+      </p>
+    </header>
+
+    <div class="project-list">
+
+      <!-- PROJECT 1 -->
+      <div class="project-row">
+        <div class="project-image">
+          <img src="drone.jpg" alt="Autonomous Drone PCB">
+        </div>
+        <div class="project-info">
+          <h2>Autonomous Drone (Custom PCB)</h2>
+          <p>
+            Designed a multi-layer flight controller PCB in Altium integrating
+            IMU, MCU, power regulation, and sensor interfaces. Focused on
+            modular architecture for future drone platforms and real-time
+            stabilization control.
+          </p>
+          <div class="project-links">
+            <a href="Drone3.html">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-row">
+        <div class="project-image">
+          <img src="googly.jpg" alt="Autonomous Robot">
+        </div>
+        <div class="project-info">
+          <h2>Autonomous Maze-Solving Robot</h2>
+          <p>
+            ESP32-based autonomous robot capable of navigating mazes using
+            sensor fusion and custom control logic. Implemented embedded
+            firmware for motor control, sensing, and path decision algorithms.
+          </p>
+          <div class="project-links">
+            <a href="#">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 3 -->
+      <div class="project-row">
+        <div class="project-image">
+          <img src="pcb.jpg" alt="PCB Design">
+        </div>
+        <div class="project-info">
+          <h2>Custom Sensor Interface PCB</h2>
+          <p>
+            Developed a compact PCB for sensor data acquisition and real-time
+            processing. Included power conditioning, filtering, and digital
+            communication interfaces for embedded applications.
+          </p>
+          <div class="project-links">
+            <a href="#">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- TEMPLATE: DUPLICATE THIS BLOCK FOR MORE PROJECTS -->
+      <!--
+      <div class="project-row">
+        <div class="project-image">
+          <img src="yourimage.jpg" alt="Project Name">
+        </div>
+        <div class="project-info">
+          <h2>Project Title</h2>
+          <p>
+            3–4 sentences explaining what it is, what you designed,
+            and what engineering skills it demonstrates (PCB, firmware,
+            control systems, etc.).
+          </p>
+          <div class="project-links">
+            <a href="projectpage.html">View Project</a>
+            <a href="#">GitHub</a>
+            <a href="#">Files</a>
+          </div>
+        </div>
+      </div>
+      -->
+
+    </div>
+
+    <footer>
+      <p>
+        Additional design files, schematics, and documentation available upon request.
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
