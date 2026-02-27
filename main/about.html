@@ -1,74 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Me</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #002330;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me | Chloe Irgang</title>
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-            max-width: 500px;
-            text-align: center;
-        }
+  <style>
+    :root {
+      --accent: #2563eb;
+      --bg: #002330;
+      --text: #ffffff;
+      --muted: #6b7280;
+      --card: #011b24;
+      --border: #e5e7eb;
+    }
 
-        h1 {
-            margin-bottom: 10px;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        .subtitle {
-            color: #666;
-            margin-bottom: 20px;
-        }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
 
-        p {
-            line-height: 1.6;
-        }
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: rgba(0, 35, 48, 0.95);
+      backdrop-filter: blur(6px);
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
 
-        .links a {
-            text-decoration: none;
-            margin: 0 10px;
-            color: #0077cc;
-            font-weight: bold;
-        }
+    .menu-button {
+      font-size: 28px;
+      color: var(--text);
+      cursor: pointer;
+      margin-right: 12px;
+      transition: transform 0.2s ease;
+    }
 
-        .links a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    .menu-button:hover {
+      transform: scale(1.1);
+    }
+
+    .menu-title {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* DROPDOWN MENU */
+    .dropdown {
+      position: fixed;
+      top: 60px;
+      left: 20px;
+      background: #011b24;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      min-width: 180px;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+    }
+
+    .dropdown a {
+      padding: 12px 16px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .dropdown a:hover {
+      background: var(--accent);
+    }
+
+    .dropdown.show {
+      display: flex;
+    }
+
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 120px 20px 80px 20px; /* pushes content below navbar */
+    }
+
+    /* INTRO / HERO */
+    .intro {
+      margin-bottom: 40px;
+    }
+
+    .intro h1 {
+      font-size: 2.8rem;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.15rem;
+      margin-bottom: 24px;
+    }
+
+    .intro p {
+      color: #d1d5db;
+      max-width: 750px;
+      font-size: 1.05rem;
+    }
+
+    /* SECTION CARDS */
+    .section {
+      margin-top: 60px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px 32px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    .section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+    }
+
+    .section p {
+      color: #d1d5db;
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+    }
+
+    .section ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+
+    .section li {
+      margin-bottom: 10px;
+      color: #d1d5db;
+    }
+
+    /* TWO COLUMN (for future scaling) */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .intro h1 {
+        font-size: 2.2rem;
+      }
+
+      .section {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-    <div class="card">
-        <h1>Your Name</h1>
-        <div class="subtitle">Electrical Engineering Student</div>
-        <p>
-            Hi! I’m a student interested in electronics, embedded systems, and PCB design. 
-            I enjoy building hardware projects, working with microcontrollers, and learning 
-            how software interacts with real-world systems.
-        </p>
-        <p>
-            Currently focused on circuit design, KiCad, and low-level programming for sensors 
-            and control systems.
-        </p>
-        <div class="links">
-            <a href="#">GitHub</a>
-            <a href="#">LinkedIn</a>
-            <a href="#">Portfolio</a>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="menu-button" onclick="toggleMenu()">☰</div>
+    <div class="menu-title">Menu</div>
+  </div>
+
+  <!-- DROPDOWN MENU -->
+  <div id="menu" class="dropdown">
+    <a href="../index.html">Home</a>
+    <a href="/main/projects.html">Projects</a>
+    <a href="/main/about.html">About</a>
+    <a href="/main/contact.html">Contact</a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+
+    <!-- INTRO -->
+    <section class="intro">
+      <h1>Chloe Irgang</h1>
+      <div class="subtitle">Electrical Engineering Student • Embedded Systems • PCB Design</div>
+      <p>
+        I am an electrical engineering student focused on embedded systems, custom PCB design,
+        and autonomous robotics. I enjoy building complex hardware and firmware systems from
+        the ground up, with an emphasis on architecture, reliability, and scalability.
+      </p>
+    </section>
+
+    <!-- ENGINEERING PHILOSOPHY -->
+    <section class="section">
+      <h2>Engineering Philosophy</h2>
+      <p>
+        I approach engineering from a systems-level perspective. Before designing schematics
+        or writing firmware, I prioritize defining system architecture, power requirements,
+        communication interfaces, and potential failure modes. This allows my designs to be
+        robust and scalable rather than just functional.
+      </p>
+      <p>
+        My work emphasizes clean hardware design, modular firmware, and long-term
+        maintainability. Whether developing an autonomous drone controller or an embedded
+        sensing system, I focus on reliability, signal integrity, and thoughtful integration
+        between hardware and software.
+      </p>
+    </section>
+
+    <!-- TECHNICAL INTERESTS -->
+    <section class="section">
+      <h2>Technical Interests</h2>
+      <ul>
+        <li>Embedded systems and low-level firmware (C/C++)</li>
+        <li>Multi-layer PCB design and schematic capture</li>
+        <li>Autonomous drones and robotics</li>
+        <li>Sensor fusion and control systems</li>
+        <li>Real-time systems and flight control architecture</li>
+      </ul>
+    </section>
+
+    <!-- TOOLS & TECHNOLOGIES -->
+    <section class="section">
+      <h2>Tools & Technologies</h2>
+      <div class="grid">
+        <div>
+          <p><strong>Hardware & PCB:</strong><br>
+          Altium Designer, KiCad, Schematic Design, PCB Layout, DRC</p>
         </div>
-    </div>
+        <div>
+          <p><strong>Embedded Platforms:</strong><br>
+          ESP32, RP2040, STM32, Arduino</p>
+        </div>
+        <div>
+          <p><strong>Software:</strong><br>
+          C/C++, Python, MATLAB</p>
+        </div>
+        <div>
+          <p><strong>Other Tools:</strong><br>
+          Onshape, Git, VS Code</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACKGROUND -->
+    <section class="section">
+      <h2>Background</h2>
+      <p>
+        I am currently studying Electrical Engineering with a focus on embedded systems,
+        control, and autonomous hardware design. Most of my projects involve designing
+        custom PCBs, integrating sensors and microcontrollers, and developing firmware
+        for real-world robotic applications.
+      </p>
+      <p>
+        I am especially interested in building versatile, modular systems that can scale
+        across multiple robotics platforms, including drones and autonomous robots.
+      </p>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    // Close menu if clicking outside
+    window.addEventListener("click", function(e) {
+      if (!e.target.closest('.navbar') && !e.target.closest('.dropdown')) {
+        document.getElementById("menu").classList.remove("show");
+      }
+    });
+  </script>
 </body>
 </html>
