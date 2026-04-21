@@ -36,11 +36,18 @@
       text-decoration: underline;
     }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 80px 20px;
-    }
+  .container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 100px; /* push below navbar */
+  padding: 40px;
+  background: #011b24;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  }
 
     header {
       margin-bottom: 48px;
@@ -150,10 +157,6 @@
   display: flex;
 }
 
-/* Push content down so navbar doesn't overlap */
-.container {
-  padding-top: 100px;
-}
   </style>
 </head>
 
@@ -172,8 +175,10 @@
     <a href="/main/contact.html">Contact</a>
   </div>
 
- 
 
+  <div class="container">
+    <p>Hello main text goes here</p>
+  </div>
 
   <script>
     function toggleMenu() {
