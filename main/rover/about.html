@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --accent: #2563eb;
+      --bg: #002330;
+      --text: #ffffff;
+      --muted: #6b7280;
+      --card: #f9fafb;
+      --border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 80px 20px;
+    }
+
+    header {
+      margin-bottom: 48px;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: var(--muted);
+    }
+
+
+    .button {
+      display: inline-block;
+      margin-top: 16px;
+      padding: 10px 18px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      font-weight: 500;
+      text-decoration: none;
+      width: fit-content;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      opacity: 0.9;
+    }
+
+    footer {
+      margin-top: 64px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+    }
+     /* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: rgba(0, 35, 48, 0.95); /* matches your --bg */
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 1000;
+  border-bottom: 1px solid var(--border);
+}
+
+.menu-button {
+  font-size: 28px;
+  color: var(--text);
+  cursor: pointer;
+  margin-right: 12px;
+  transition: transform 0.2s ease;
+}
+
+.menu-button:hover {
+  transform: scale(1.1);
+}
+
+.menu-title {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* DROPDOWN MENU */
+.dropdown {
+  position: fixed;
+  top: 60px;
+  left: 20px;
+  background: #011b24;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  min-width: 180px;
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.dropdown a {
+  padding: 12px 16px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.dropdown a:hover {
+  background: var(--accent);
+}
+
+.dropdown.show {
+  display: flex;
+}
+
+/* Push content down so navbar doesn't overlap */
+.container {
+  padding-top: 100px;
+}
+  </style>
+</head>
+
+<body>
+  
+     <!-- NAVBAR / MENU -->
+  <div class="navbar">
+    <div class="menu-button" onclick="toggleMenu()">☰</div>
+    <div class="menu-title">Menu</div>
+  </div>
+
+  <div id="menu" class="dropdown">
+    <a href="/">Home</a>
+    <a href="/main/projects.html">Projects</a>
+    <a href="/main/about.html">About</a>
+    <a href="/main/contact.html">Contact</a>
+  </div>
+
+ 
+
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    // Close menu if clicking outside
+    window.addEventListener("click", function(e) {
+      if (!e.target.closest('.navbar') && !e.target.closest('.dropdown')) {
+        document.getElementById("menu").classList.remove("show");
+      }
+    });
+  </script>
+</body>
+</html>
