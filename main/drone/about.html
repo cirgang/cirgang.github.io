@@ -170,6 +170,17 @@
   display: flex;
 }
 
+.image-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap; /* allows stacking on small screens */
+}
+
+.image-row img {
+  width: 100%;
+  max-width: 300px;
+}
+
   </style>
 </head>
 
@@ -213,18 +224,24 @@
   </div>
   <div class="container">
     <h2>Links & Files</h2>
-    <h3><u>Rev 1</u></h3>
-    <a href="https://google.com">Schematic</a>
-    <a href="https://google.com">PCB</a>
+    <h3>General</h3>
+    <a href="https://google.com">Altium</a>
     <a href="https://google.com">Docs</a>
-    <h3><u>Rev 2</u></h3>
-    <a href="https://google.com">Schematic</a>
-    <a href="https://google.com">PCB</a>
-    <a href="https://google.com">Docs</a>
-    <h3><u>Rev 3</u></h3>
-    <a href="https://google.com">Schematic</a>
-    <a href="https://google.com">PCB</a>
-    <a href="https://google.com">Docs</a>
+    <h3>Rev 1</h3>
+    <div class="image-row">
+    <img src="/main/photos/pcb.jpg" alt="Schematic" />
+    <img src="/main/photos/pcb.jpg" alt="PCB" />
+    </div>
+    <h3>Rev 2</h3>
+    <div class="image-row">
+    <img src="/main/photos/pcb.jpg" alt="Schematic" />
+    <img src="/main/photos/pcb.jpg" alt="PCB" />
+    </div>
+    <h3>Rev 3</h3>
+    <div class="image-row">
+    <img src="/main/photos/pcb.jpg" alt="Schematic" />
+    <img src="/main/photos/pcb.jpg" alt="PCB" />
+    </div>
   </div>
   <!---------------------------------->
 
