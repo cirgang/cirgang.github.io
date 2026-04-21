@@ -50,7 +50,9 @@
   }
 
     header {
-      margin-bottom: 48px;
+      max-width: 800px;
+      margin: 100px auto 20px auto; /* push below navbar + center */
+      padding: 0 10px; /* slight side padding for small screens */
     }
 
     header h1 {
@@ -62,6 +64,12 @@
       color: var(--muted);
     }
 
+    img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: 8px;
+    }
 
     .button {
       display: inline-block;
@@ -175,10 +183,24 @@
     <a href="/main/contact.html">Contact</a>
   </div>
 
+  <!---------------------------------->
+  <header>
+    <h1>NAME</h1>
+    <p>20XX-20XX</p>
+  </header>
 
   <div class="container">
-    <p>Hello main text goes here</p>
+    
+
+    <p>Project description</p>
+    <img src="/main/photos/pcb.jpg" alt="Drone PCB" />
+    <p>Description cont.</p>
   </div>
+  <div class="container">
+    <h2>Links & Files</h2>
+    <a href="https://google.com">Link</a>
+  </div>
+  <!---------------------------------->
 
   <script>
     function toggleMenu() {
